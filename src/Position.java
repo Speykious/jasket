@@ -3,7 +3,10 @@
  * Représente une position entière sur une grille en 2D.
  */
 public class Position {
-  public int x, y;
+  /** Unité de la position sur l'axe des abscises. */
+  public int x;
+  /** Unité de la position sur l'axe des ordonnées. */
+  public int y;
   
   /** Ce constructeur initialise la position à (0, 0). */
   public Position() {
