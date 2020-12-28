@@ -1,0 +1,1 @@
+public class PointGuard extends Player {}

@@ -1,0 +1,1 @@
+public class SmallForward extends Player {}
