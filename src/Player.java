@@ -10,6 +10,9 @@ public abstract class Player {
   protected Position position;
   /** Indique si le joueur a le ballon. */
   protected boolean hasTheBall;
+
+  protected int goals = 0 ;
+
   
   public Player(String name) {
     this(name, 0, 0, false);
@@ -27,6 +30,21 @@ public abstract class Player {
     this.name = name;
     this.position = position;
     this.hasTheBall = hasTheBall;
+  }
+
+  public String getNom(){
+    return this.name;
+  }
+
+  public int getGoals(){
+    return this.goals;
+  }
+
+    /**
+   * [goalMake point marquer par le joueur meneur]
+   */
+  public void goalMake(){
+    goals+=2;
   }
   
   /**
