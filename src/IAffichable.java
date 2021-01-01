@@ -1,1 +1,1 @@
-public class interface IAffichable {}
+public interface IAffichable {}

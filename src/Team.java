@@ -1,39 +1,42 @@
-public class Team {
-
 /**
  * @author Danny Ba
- *
- * Classe team qui rassemble les joueurs remplaçants et titulaires
+ * Rassemble les joueurs remplaçants et titulaires
  **/
+public class Team {
+  private Player[] holders;
+  private Player[] substitutes;
+  private int realL;
+  
+  /**
+   * Création de l'équipe avec les titulaires et les remplaçants
+   * @param holders Les titulaires
+   * @param substitutes Les remplaçants
+   */
+  public Team(Player[] holders, Player[] substitutes) {
+    this.holders = holders;
+    this.substitutes = substitutes;
+    realL = holders.length;
+  }
 
-	/**
-	 * creation de l'equipe les titulaires et les remplaçant
-	 */
-	public  Team {
-	
-		private Player[] holder = new Player[5];
-		private Player[] substitute = new Player[5];
-		private int realL = 0;
-	}
+  // À revoir, vu qu'il semblerait qu'il y ait toujours exactement un PointGuard, un ShootingGuard, un PowerForward, etc.
+  // Il vaudrait mieux à mon avis séparer les attributs au lieu de les rassembler dans un tableau
+  public Team() {
+    holders = new Player[] {
+      new PointGuard(),
+      new ShootingGuard(),
+      new PowerForward(),
+      new Center(),
+      new SmallForward()
+    };
+    substitutes = new Player[5];
+  }
 
-
-	public Team(){
-		this.holder[0] = new PointGuard();
-		this.holder[1] = new ShootingGuard();
-		this.holder[2] = new PowerForward();
-		this.holder[3] = new Center();
-		this.holder[4] = new SmallForward();
-	}
-
-	public subcreate(Player p){
-
-		if(realL >= substitute.length){
-			throw new SubstitutePlayerPleinException("on ne peu plus d'ajouter de joueur remplaçant")
-		}
-		else{
-			substitute[realL] = p;
-			realL++;
-		}
-	}
-
+  public void addSubstitute(Player p) {
+    if (realL >= substitutes.length) {
+      throw new SubstitutePlayerPleinException("on ne peu plus d'ajouter de joueur remplaçant");
+    } else {
+      substitutes[realL] = p;
+      realL++;
+    }
+  }
 }

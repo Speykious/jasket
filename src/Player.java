@@ -32,19 +32,17 @@ public abstract class Player {
     this.hasTheBall = hasTheBall;
   }
 
-  public String getNom(){
+  public String getName() {
     return this.name;
   }
 
-  public int getGoals(){
+  public int getGoals() {
     return this.goals;
   }
 
-    /**
-   * [goalMake point marquer par le joueur meneur]
-   */
-  public void goalMake(){
-    goals+=2;
+  /** Le joueur courant marque des points */
+  public void score() {
+    goals += 2;
   }
   
   /**

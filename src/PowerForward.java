@@ -1,22 +1,18 @@
 public class PowerForward extends Player implements Forward {
-
-
 	/**
-	 * [Attack previens que le joueur est en attaque]
-	 * @return [une chaine de caractere]
+	 * Attack previens que le joueur est en attaque
+	 * @return Le message de notification
 	 */
-	public String attack(){
-
-		return "le joueur "+super.name+" attaque !!";
+	public String attack() {
+		return "le joueur "+super.name+" attaque !";
 	}
 
 	/**
- 	* [Defense on previens que le meneur defend sur un joueur donner]
- 	* @param  p [le joueur qui est bloquer par L'arrière]
- 	* @return   [une chaine de caractere sur le nom du joueur qui defend et le defendu]
+ 	* Defense on previens que le meneur defend sur un joueur donner
+ 	* @param  p le joueur qui est bloquer par L'arrière
+ 	* @return Le message de notification
  	*/
-	public String defense(Player p){
-
-		return "le joueur " + super.name + " defend sur le joueur "+p.getNom()+" !!!";
+	public String defense(Player p) {
+		return "le joueur " + super.name + " defend sur le joueur " + p.getName() + " !";
 	}
 }

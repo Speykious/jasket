@@ -1,21 +1,13 @@
-public class interface Forward {
+public interface Forward {
+  /** notification que le joueurs à attaquer */
+  public String attack();
 
-/**
- * notification que le joueurs à attaquer
- **/
+  /** notification que le joueur defend */
+  public String defense();
 
-public String attack();
-
-/**
- * notification que le joueur defend 
- **/
-
-public String defense();
-
-/**
- * [rebound reception en plein vole la balle apres un shoot de l'adversaire ou de son camp]
- * @return [String]
- */
-public String rebound();
-
+  /**
+   * Réception en plein vol de la balle après un shoot de l'adversaire
+   * @return Le message de notification
+   */
+  public String rebound();
 }
