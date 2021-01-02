@@ -6,29 +6,16 @@
 public abstract class Player {
   /** Le nom du joueur. */
   protected String name;
-  /** La position du joueur. */
-  protected Position position;
   /** Indique si le joueur a le ballon. */
   protected boolean hasTheBall;
+  /** Le nombre de paniers que le joueur a marqué. */
+  protected int goals = 0;
 
-  protected int goals = 0 ;
-
-  
   public Player(String name) {
-    this(name, 0, 0, false);
+    this(name, false);
   }
-  public Player(String name, int x, int y) {
-    this(name, x, y, false);
-  }
-  public Player(String name, Position position) {
-    this(name, position, false);
-  }
-  public Player(String name, int x, int y, boolean hasTheBall) {
-    this(name, new Position(x, y), hasTheBall);
-  }
-  public Player(String name, Position position, boolean hasTheBall) {
+  public Player(String name, boolean hasTheBall) {
     this.name = name;
-    this.position = position;
     this.hasTheBall = hasTheBall;
   }
 
@@ -50,15 +37,6 @@ public abstract class Player {
    * Celui-ci dépend de son rôle dans l'équipe.
    */
   public abstract void update(Team own, Team opposite);
-  
-  /** Déplace le joueur vers une position. */
-  public void move(Position p) {
-    position.move(p);
-  }
-  /** Déplace le joueur vers un autre joueur. */
-  public void move(Player p) {
-    position.move(p.position);
-  }
   
   /** Passe le ballon à un joueur. */
   public void pass(Player p) {
