@@ -1,1 +1,2 @@
-public interface IAffichable {}
+public interface IAffichable {
+}

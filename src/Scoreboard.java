@@ -1,1 +1,2 @@
-public class Scoreboard implements IAffichable {}
+public class Scoreboard implements IAffichable {
+}
