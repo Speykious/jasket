@@ -15,4 +15,8 @@ public class PowerForward extends Player implements Forward {
 	public String defense(Player p) {
 		return "le joueur " + super.name + " defend sur le joueur " + p.getName() + " !";
 	}
+	
+	public String getType(){
+		return "PowerForward";
+	}
 }

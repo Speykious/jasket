@@ -9,5 +9,5 @@ public interface Forward {
    * Réception en plein vol de la balle après un shoot de l'adversaire
    * @return Le message de notification
    */
-  public String rebound();
+  public boolean rebound();
 }

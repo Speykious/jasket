@@ -27,4 +27,8 @@ public class PointGuard extends Player implements Guard {
   public String crossover(Player p) {
     return "Le joueur " + super.name + " a crossé le joueur " + p.getName() + " !";
   }
+  
+  public String getType(){
+    return "PointGuard";
+  }
 }

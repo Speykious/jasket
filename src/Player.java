@@ -11,7 +11,11 @@ public abstract class Player {
   /** Indique si le joueur a le ballon. */
   protected boolean hasTheBall;
 
+  /** conteurs de paniers du joueurs */
   protected int goals = 0 ;
+  
+  /** conteurs de fautes du joueurs */
+  protected int faults = 0;
 
   
   public Player(String name) {
@@ -45,11 +49,13 @@ public abstract class Player {
     goals += 2;
   }
   
+  public abstract String getType();
+  
   /**
    * Établit le comportement d'un joueur.
    * Celui-ci dépend de son rôle dans l'équipe.
    */
-  public abstract void update(Team own, Team opposite);
+  //public abstract void update(Team own, Team opposite);
   
   /** Déplace le joueur vers une position. */
   public void move(Position p) {

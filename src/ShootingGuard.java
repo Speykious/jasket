@@ -26,7 +26,13 @@ public class ShootingGuard extends Player implements Guard {
 	}
 
 	/** Le joueur arrière marque 2 points */
-	public void dunk() {
+	public String dunk() {
 		goals+=2;
+		return "le joueur " + super.name + " à DUNKERRR !";
+
+	}
+	
+	public String getType(){
+		return "ShootingGuard";
 	}
 }
