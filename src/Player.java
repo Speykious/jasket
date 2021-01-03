@@ -14,11 +14,11 @@ public abstract class Player {
   /** Le nombre de fautes du joueur. */
   protected int faults = 0;
 
-  public Player(String name) {
+  protected Player(String name) {
     this(name, false);
   }
 
-  public Player(String name, boolean hasTheBall) {
+  protected Player(String name, boolean hasTheBall) {
     this.name = name;
     this.hasTheBall = hasTheBall;
   }
@@ -35,8 +35,6 @@ public abstract class Player {
   public void score() {
     goals += 2;
   }
-
-  public abstract String getType();
 
   /**
    * Établit le comportement d'un joueur. Celui-ci dépend de son rôle dans

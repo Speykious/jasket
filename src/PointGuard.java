@@ -3,6 +3,14 @@
  * (plus que la plupart des autre joueurs)
  */
 public class PointGuard extends Player implements Guard {
+  public PointGuard(String name) {
+    super(name);
+  }
+
+  public PointGuard(String name, boolean hasTheBall) {
+    super(name, hasTheBall);
+  }
+
   /**
    * Prévient que le joueur attaque
    * 

@@ -33,10 +33,4 @@ public class SmallForward extends Player implements Forward {
 		else
 			return "bruh";
 	}
-
-	public String getType() {
-		return "SmallForward";
-	}
-
-	/* je ne sais pas si on le fait ou pas donc je laisse */
 }

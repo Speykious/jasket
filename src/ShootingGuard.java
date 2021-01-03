@@ -33,8 +33,4 @@ public class ShootingGuard extends Player implements Guard {
 		return "le joueur " + super.name + " à DUNKERRR !";
 
 	}
-
-	public String getType() {
-		return "ShootingGuard";
-	}
 }

@@ -1,20 +1,25 @@
 /**
- * @author Danny Ba Rassemble les joueurs remplaçants et titulaires
+ * Rassemble les joueurs remplaçants et titulaires.
+ * @author Danny Ba
  **/
 public class Team {
-  /** Team older les titulaire et les remplaçants */
   private PointGuard pg;
   private ShootingGuard sg;
   private PowerForward pf;
   private Center c;
   private SmallForward sf;
 
-  private int totalP;
+  private int score;
 
   /**
    * Création de l'équipe avec les titulaires et les remplaçants
    * 
-   * @param holders Les titulaires chacun de leurs postes sont integrer
+   * @param pg PointGuard
+   * @param sg ShootingGuard
+   * @param pf PowerForward
+   * @param c  Center
+   * @param sf SmallForward
+   * @param p Le score
    */
   public Team(PointGuard pg, ShootingGuard sg, PowerForward pf, Center c, SmallForward sf, int p) {
     this.pg = pg;
@@ -23,63 +28,43 @@ public class Team {
     this.c = c;
     this.sf = sf;
 
-    totalP = p;
+    score = p;
   }
 
   /**
-   * [Team initialise l'équipe sans donner le nombre de point qu'il ont à la base
-   * et donc est à 0]
+   * Initialise l'équipe sans donner le nombre de points qu'ils ont à la base
+   * et donc est à 0
    * 
-   * @method Team
-   * @param pg [PointGuard]
-   * @param sg [ShootingGuard]
-   * @param pf [PowerForward]
-   * @param c  [Center]
-   * @param sf [SmallForward]
+   * @param pg PointGuard
+   * @param sg ShootingGuard
+   * @param pf PowerForward
+   * @param c  Center
+   * @param sf SmallForward
    */
   public Team(PointGuard pg, ShootingGuard sg, PowerForward pf, Center c, SmallForward sf) {
-    this.pg = pg;
-    this.sg = sg;
-    this.pf = pf;
-    this.c = c;
-    this.sf = sf;
-
-    totalP = 0;
+    this(pg, sg, pf, c, sf, 0);
   }
 
-  /** ajouter le remplacant en prenant la place d'un des membre de l'equipe */
+  /** Ajoute le remplacant en prenant la place d'un des membres de l'équipe */
   public void addSubstitute(Player p) {
-
-    if (p.getType() == "PointGuard")
-      pg = (PointGuard) p;
-    if (p.getType() == "ShootingGuard")
-      sg = (ShootingGuard) p;
-    if (p.getType() == "PowerForward")
-      pf = (PowerForward) p;
-    if (p.getType() == "Center")
-      c = (Center) p;
-    if (p.getType() == "SmallForward")
-      sf = (SmallForward) p;
-
+    if      (p instanceof PointGuard)    pg = (PointGuard)p;
+    else if (p instanceof ShootingGuard) sg = (ShootingGuard)p;
+    else if (p instanceof PowerForward)  pf = (PowerForward)p;
+    else if (p instanceof Center)        c  = (Center)p;
+    else if (p instanceof SmallForward)  sf = (SmallForward)p;
   }
 
   /**
-   * [getCurrentScore retourne le score courrent ]
+   * Retourne le score courant de l'équipe.
    * 
-   * @method getCurrentScore
-   * @return [le score de l'équipe]
+   * @return le score de l'équipe
    */
   public int getCurrentScore() {
-    return totalP;
+    return score;
   }
 
-  /**
-   * [scoreUpdate si il y a modification du score]
-   * 
-   * @method scoreUpdate
-   * @return [rien du tout car c'est juste un update ]
-   */
+  /** Met le score de l'équipe à jour. */
   public void scoreUpdate() {
-    totalP += pg.getGoals() + sg.getGoals() + pf.getGoals() + c.getGoals() + sf.getGoals();
+    score = pg.getGoals() + sg.getGoals() + pf.getGoals() + c.getGoals() + sf.getGoals();
   }
 }

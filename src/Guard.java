@@ -7,5 +7,5 @@ public interface Guard {
   public String attack();
 
   /** notification que le joueur defend */
-  public String defense();
+  public String defense(Player p);
 }

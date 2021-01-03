@@ -3,6 +3,14 @@
  * principalement defensif il reste dans la zone de son camps
  */
 public class Center extends Player {
+	public Center(String name) {
+		super(name);
+	}
+
+	public Center(String name, boolean hasTheBall) {
+		super(name, hasTheBall);
+	}
+
 	public String bash(Player p) {
 		if (Math.random() * 10 == 9)
 			return "le joueurs " + super.name + "viens de faire un magnifique bashh !!!";
@@ -10,9 +18,5 @@ public class Center extends Player {
 			p.score();
 			return "le joueurs " + super.name + "viens de rater son  bashh !!!";
 		}
-	}
-
-	public String getType() {
-		return "Center";
 	}
 }
