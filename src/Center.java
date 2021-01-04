@@ -4,7 +4,7 @@
  */
 public class Center extends Player {
 	/** Probabilité de faire un bash. */
-	public double pBash;
+	private double pBash;
 
 	public Center(String name) {
 		this(name, 0.1);

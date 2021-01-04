@@ -1,36 +1,30 @@
-public class SmallForward extends Player implements Forward {
-	/**
-	 * Prévient que le joueur est en attaque
-	 * 
-	 * @return Le message de notification
-	 */
-	public String attack() {
-		return "Le joueur " + super.name + " attaque !";
-	}
+public class SmallForward extends Forward {
+  /** Probabilité que le joueur réussisse son rebond. */
+  private double pRebound;
 
-	/**
-	 * Prévient que le meneur défend sur un joueur adverse
-	 * 
-	 * @param p Le joueur adverse
-	 * @return Le message de notification
-	 */
-	public String defense(Player p) {
-		return "le joueur " + super.name + " defend sur le joueur " + p.getName() + " !";
-	}
+  public SmallForward(String name) {
+    this(name, 0.1);
+  }
 
-	public boolean rebound() {
-		// Wtf?? --> // "le joueur " + super.name + " a fait un rebond !!!"
-		// commentateur sportif c'est pour ça
-		if (Math.random() * 10 == 1)
-			return true;
-		else
-			return false;
-	}
+  public SmallForward(String name, double pRebound) {
+    super(name);
+    this.pRebound = pRebound;
+  }
 
-	public String ballTakin() {
-		if (this.rebound())
-			return "rebond pris par le joueur " + super.name;
-		else
-			return "bruh";
-	}
+  /** Le joueur effectue un rebond. */
+  public String rebound() {
+    if (Math.random() < pRebound)
+      return name + " a fait un rebond !";
+    else
+      return name + " a raté son rebond !";
+  }
+
+  /* J'ai pas très bien compris ce que fait cette fonction
+  public String ballTakin() {
+    if (rebound())
+      return "rebond pris par le joueur " + super.name;
+    else
+      return "bruh";
+  }
+  */
 }

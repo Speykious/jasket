@@ -1,24 +1,9 @@
 /**
- * Arriere de jeu est sur le côté
+ * Arrière de jeu sur le côté.
  */
-public class ShootingGuard extends Player implements Guard {
-	/**
-	 * Prévient que le joueur est en attaque
-	 * 
-	 * @return Le message de notification
-	 */
-	public String attack() {
-		return "le joueur " + super.name + " attaque !!";
-	}
-
-	/**
-	 * Prévient que le meneur défend sur un joueur adverse
-	 * 
-	 * @param p Le joueur adverse
-	 * @return Le message de notification
-	 */
-	public String defense(Player p) {
-		return "le joueur " + super.name + " defend sur le joueur " + p.getName() + " !";
+public class ShootingGuard extends Guard {
+	public ShootingGuard(String name) {
+		super(name);
 	}
 
 	/** Le joueur arrière courant marque 3 points */
@@ -30,7 +15,6 @@ public class ShootingGuard extends Player implements Guard {
 	/** Le joueur arrière marque 2 points */
 	public String dunk() {
 		score += 2;
-		return "le joueur " + super.name + " à DUNKERRR !";
-
+		return name + " a DUNKÉÉÉ !";
 	}
 }

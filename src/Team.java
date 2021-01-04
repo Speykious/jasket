@@ -65,6 +65,6 @@ public class Team {
 
   /** Met le score de l'équipe à jour. */
   public void scoreUpdate() {
-    score = pg.getGoals() + sg.getGoals() + pf.getGoals() + c.getGoals() + sf.getGoals();
+    score = pg.getScore() + sg.getScore() + pf.getScore() + c.getScore() + sf.getScore();
   }
 }

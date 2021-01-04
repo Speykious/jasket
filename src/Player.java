@@ -10,35 +10,35 @@ public abstract class Player {
   /** Indique si le joueur a le ballon. */
   protected boolean hasTheBall;
   /** Score du joueur. */
-  protected int score = 0;
+  protected int score;
   /** Le nombre de fautes du joueur. */
-  protected int faults = 0;
+  protected int fouls;
+  
+  /** Joueur adverse qui défend sur le joueur courant. */
+  protected Player defendedBy;
 
   protected Player(String name) {
     this.name = name;
-    this.hasTheBall = false;
+    hasTheBall = false;
+    score = 0;
+    fouls = 0;
+    defendedBy = null;
   }
 
   /** Nom du joueur. */
   public String getName() {
-    return this.name;
+    return name;
   }
 
   /** Score du joueur. */
-  public int getGoals() {
-    return this.score;
+  public int getScore() {
+    return score;
   }
 
   /** Le joueur courant marque des points */
   public void score() {
     score += 2;
   }
-
-  /**
-   * Établit le comportement d'un joueur. Celui-ci dépend de son rôle dans
-   * l'équipe.
-   */
-  // public abstract void update(Team own, Team opposite);
 
   /** Passe le ballon à un joueur. */
   public void pass(Player p) {
