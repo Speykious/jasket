@@ -8,17 +8,12 @@ public class Scoreboard {
   public Team guest;
   /** Équipe "Home". */
   public Team home;
-  /** Minutes restantes du match. */
-  private int minutes;
-  /** Secondes restantes du match. */
-  private int seconds;
+  /** Temps restant du match courant. */
+  public Time time;
 
   public Scoreboard(Team guest, Team home) {
     this.guest = guest;
     this.home = home;
-    this.minutes = 0;
-    this.seconds = 0;
+    this.time = new Time();
   }
-
-  
 }
