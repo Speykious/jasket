@@ -1,22 +1,27 @@
 /**
- * Center bouge peu pendant le match voila pourquoi il a peu de fonction
- * principalement defensif il reste dans la zone de son camps
+ * Joueur qui bouge peu pendant le match.
+ * Principalement défensif, il reste dans la zone de son camp.
  */
 public class Center extends Player {
+	/** Probabilité de faire un bash. */
+	public double pBash;
+
 	public Center(String name) {
+		this(name, 0.1);
+	}
+
+	public Center(String name, double pBash) {
 		super(name);
+		this.pBash = pBash;
 	}
 
-	public Center(String name, boolean hasTheBall) {
-		super(name, hasTheBall);
-	}
-
+	/** Le joueur courant bash un joueur adverse. */
 	public String bash(Player p) {
-		if (Math.random() * 10 == 9)
-			return "le joueurs " + super.name + "viens de faire un magnifique bashh !!!";
+		if (Math.random() < pBash)
+			return name + " vient de faire un magnifique bash !";
 		else {
 			p.score();
-			return "le joueurs " + super.name + "viens de rater son  bashh !!!";
+			return name + " vient de rater son bash !";
 		}
 	}
 }

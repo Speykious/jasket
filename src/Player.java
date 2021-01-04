@@ -9,31 +9,29 @@ public abstract class Player {
   protected String name;
   /** Indique si le joueur a le ballon. */
   protected boolean hasTheBall;
-  /** Le nombre de paniers que le joueur a marqué. */
-  protected int goals = 0;
+  /** Score du joueur. */
+  protected int score = 0;
   /** Le nombre de fautes du joueur. */
   protected int faults = 0;
 
   protected Player(String name) {
-    this(name, false);
-  }
-
-  protected Player(String name, boolean hasTheBall) {
     this.name = name;
-    this.hasTheBall = hasTheBall;
+    this.hasTheBall = false;
   }
 
+  /** Nom du joueur. */
   public String getName() {
     return this.name;
   }
 
+  /** Score du joueur. */
   public int getGoals() {
-    return this.goals;
+    return this.score;
   }
 
   /** Le joueur courant marque des points */
   public void score() {
-    goals += 2;
+    score += 2;
   }
 
   /**

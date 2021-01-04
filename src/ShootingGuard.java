@@ -24,12 +24,12 @@ public class ShootingGuard extends Player implements Guard {
 	/** Le joueur arrière courant marque 3 points */
 	@Override
 	public void score() {
-		goals += 3;
+		score += 3;
 	}
 
 	/** Le joueur arrière marque 2 points */
 	public String dunk() {
-		goals += 2;
+		score += 2;
 		return "le joueur " + super.name + " à DUNKERRR !";
 
 	}
