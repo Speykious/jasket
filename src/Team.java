@@ -3,13 +3,19 @@
  * @author Danny Ba
  **/
 public class Team {
-  
-  private PointGuard pg;
-  private ShootingGuard sg;
-  private PowerForward pf;
-  private Center c;
-  private SmallForward sf;
+  private PointGuard pointGuard;
+  private ShootingGuard shootingGuard;
+  private PowerForward powerForward;
+  private Center center;
+  private SmallForward smallForward;
 
+  private PointGuard subPointGuard;
+  private ShootingGuard subShootingGuard;
+  private PowerForward subPowerForward;
+  private Center subCenter;
+  private SmallForward subSmallForward;
+
+  public final String name;
   private int score;
   
 
@@ -23,13 +29,24 @@ public class Team {
    * @param sf SmallForward
    * @param p Le score
    */
-  public Team(PointGuard pg, ShootingGuard sg, PowerForward pf, Center c, SmallForward sf, int p) {
-    this.pg = pg;
-    this.sg = sg;
-    this.pf = pf;
-    this.c = c;
-    this.sf = sf;
+  public Team(String name,
+              PointGuard pg, ShootingGuard sg, PowerForward pf, Center c, SmallForward sf,
+              PointGuard spg, ShootingGuard ssg, PowerForward spf, Center sc, SmallForward ssf,
+              int p) {
+    this.name = name;
 
+    pointGuard    = pg;
+    shootingGuard = sg;
+    powerForward  = pf;
+    center        = c;
+    smallForward  = sf;
+
+    subPointGuard    = spg;
+    subShootingGuard = ssg;
+    subPowerForward  = spf;
+    subCenter        = sc;
+    subSmallForward  = ssf;
+    
     score = p;
   }
 
@@ -43,17 +60,27 @@ public class Team {
    * @param c  Center
    * @param sf SmallForward
    */
-  public Team(PointGuard pg, ShootingGuard sg, PowerForward pf, Center c, SmallForward sf) {
-    this(pg, sg, pf, c, sf, 0);
+  public Team(String name,
+              PointGuard pg, ShootingGuard sg, PowerForward pf, Center c, SmallForward sf,
+              PointGuard spg, ShootingGuard ssg, PowerForward spf, Center sc, SmallForward ssf) {
+    this(name, pg, sg, pf, c, sf, spg, ssg, spf, sc, ssf, 0);
   }
 
   /** Ajoute le remplacant en prenant la place d'un des membres de l'équipe */
   public void addSubstitute(Player p) {
-    if      (p instanceof PointGuard)    pg = (PointGuard)p;
-    else if (p instanceof ShootingGuard) sg = (ShootingGuard)p;
-    else if (p instanceof PowerForward)  pf = (PowerForward)p;
-    else if (p instanceof Center)        c  = (Center)p;
-    else if (p instanceof SmallForward)  sf = (SmallForward)p;
+    if      (p instanceof PointGuard)    subPointGuard    = (PointGuard)p;
+    else if (p instanceof ShootingGuard) subShootingGuard = (ShootingGuard)p;
+    else if (p instanceof PowerForward)  subPowerForward  = (PowerForward)p;
+    else if (p instanceof Center)        subCenter        = (Center)p;
+    else if (p instanceof SmallForward)  subSmallForward  = (SmallForward)p;
+    else throw new IllegalArgumentException("Player has to be a more specific child");
+  }
+
+  /** Échange les point guards. */
+  public void switchPointGuard() {
+    PointGuard temp = subPointGuard;
+    subPointGuard = pointGuard;
+    pointGuard = temp;
   }
 
   /**
@@ -67,6 +94,10 @@ public class Team {
 
   /** Met le score de l'équipe à jour. */
   public void scoreUpdate() {
-    score += pg.getScore() + sg.getScore() + pf.getScore() + c.getScore() + sf.getScore();
+    score = pointGuard.getScore()
+          + shootingGuard.getScore()
+          + powerForward.getScore()
+          + center.getScore()
+          + smallForward.getScore();
   }
 }
