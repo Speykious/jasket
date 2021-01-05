@@ -29,6 +29,10 @@ public class Center extends Player {
 		return "Center";
 	}
 	
+	/**
+	 * [toString affiche la "fiche" du joueurs]
+	 * @return [la fiche du joueurs]
+	 */
 	public String toString(){
 		return super.name + " \n Poste : " + getPosition() + " \n  Nombre de fautes :  " + super.fouls ;
 	}
