@@ -24,6 +24,7 @@ public abstract class Player {
     fouls = 0;
     defendedBy = null;
   }
+  
 
   /** Nom du joueur. */
   public String getName() {
