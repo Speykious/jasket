@@ -24,6 +24,7 @@ public abstract class MovingPlayer extends Player {
 	 * @return Le message de notification
 	 */
 	public String defense(Player p) {
+		p.defendedBy = this;
 		return name + " défend sur le joueur " + p.name + " !";
 	}
 	
