@@ -18,8 +18,9 @@ public class SmallForward extends Forward {
     else
       return name + " a raté son rebond !";
   }
-<<<<<<< HEAD
+  
+  public String toString(){
+    return super.name + " \n Poste : " + position() + " \n  Nombre de fautes :  " + super.fouls ;
+  }
 
-=======
->>>>>>> 5ce673f1c186ab46961a9f294acff1cb6cfd58e7
 }

@@ -17,4 +17,8 @@ public class ShootingGuard extends Guard {
 		score += 2;
 		return name + " à DUNKÉÉÉ !";
 	}
+	
+	public String toString(){
+		return super.name + " \n Poste : " + position() + " \n  Nombre de fautes :  " + super.fouls ;
+	}
 }

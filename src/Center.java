@@ -24,4 +24,14 @@ public class Center extends Player {
 			return name + " vient de rater son bash !";
 		}
 	}
+	
+	public String getPosition(){
+		return "Center";
+	}
+	
+	public String toString(){
+		return super.name + " \n Poste : " + getPosition() + " \n  Nombre de fautes :  " + super.fouls ;
+	}
+	
+	
 }

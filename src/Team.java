@@ -3,6 +3,7 @@
  * @author Danny Ba
  **/
 public class Team {
+  
   private PointGuard pg;
   private ShootingGuard sg;
   private PowerForward pf;
@@ -10,6 +11,7 @@ public class Team {
   private SmallForward sf;
 
   private int score;
+  
 
   /**
    * Création de l'équipe avec les titulaires et les remplaçants
@@ -65,6 +67,6 @@ public class Team {
 
   /** Met le score de l'équipe à jour. */
   public void scoreUpdate() {
-    score = pg.getScore() + sg.getScore() + pf.getScore() + c.getScore() + sf.getScore();
+    score += pg.getScore() + sg.getScore() + pf.getScore() + c.getScore() + sf.getScore();
   }
 }
