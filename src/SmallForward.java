@@ -18,5 +18,8 @@ public class SmallForward extends Forward {
     else
       return name + " a raté son rebond !";
   }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 5ce673f1c186ab46961a9f294acff1cb6cfd58e7
 }

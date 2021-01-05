@@ -14,6 +14,7 @@ public abstract class Player {
   protected int score;
   /** Le nombre de fautes du joueur. */
   protected int fouls;
+  protected boolean attacking;
   /** Joueur adverse qui défend sur le joueur courant. */
   protected Player defendedBy;
 
@@ -23,6 +24,7 @@ public abstract class Player {
     score = 0;
     fouls = 0;
     defendedBy = null;
+    attacking = false;
   }
   
 
@@ -41,7 +43,7 @@ public abstract class Player {
     score += 2;
   }
   
-  public int getFouls(){
+  public int getFouls() {
     return fouls;
   }
 
