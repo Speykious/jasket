@@ -15,6 +15,6 @@ public class ShootingGuard extends Guard {
 	/** Le joueur arrière marque 2 points */
 	public String dunk() {
 		score += 2;
-		return name + " a DUNKÉÉÉ !";
+		return name + " à DUNKÉÉÉ !";
 	}
 }

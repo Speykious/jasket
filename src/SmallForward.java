@@ -19,12 +19,4 @@ public class SmallForward extends Forward {
       return name + " a raté son rebond !";
   }
 
-  /* J'ai pas très bien compris ce que fait cette fonction
-  public String ballTakin() {
-    if (rebound())
-      return "rebond pris par le joueur " + super.name;
-    else
-      return "bruh";
-  }
-  */
 }

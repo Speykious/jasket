@@ -3,6 +3,7 @@
  * besoin d'avoir un rôle assigné en jeu.
  * 
  * @author SPAAK Nelson
+ * @author BA Danny 
  */
 public abstract class Player {
   /** Le nom du joueur. */
@@ -13,7 +14,6 @@ public abstract class Player {
   protected int score;
   /** Le nombre de fautes du joueur. */
   protected int fouls;
-  
   /** Joueur adverse qui défend sur le joueur courant. */
   protected Player defendedBy;
 
@@ -39,6 +39,10 @@ public abstract class Player {
   public void score() {
     score += 2;
   }
+  
+  public int getFouls(){
+    return fouls;
+  }
 
   /** Passe le ballon à un joueur. */
   public void pass(Player p) {
@@ -50,4 +54,5 @@ public abstract class Player {
     } else
       throw new IllegalStateException("Trying to pass the ball which Player " + this + " doesn't have");
   }
+  
 }

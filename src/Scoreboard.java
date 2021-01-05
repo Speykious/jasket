@@ -11,6 +11,11 @@ public class Scoreboard {
   /** Temps restant du match courant. */
   public Time time;
 
+  /**
+   * [Scoreboard description]
+   * @param guest [description]
+   * @param home  [description]
+   */
   public Scoreboard(Team guest, Team home) {
     this.guest = guest;
     this.home = home;
