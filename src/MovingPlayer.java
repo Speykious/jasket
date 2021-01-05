@@ -14,7 +14,10 @@ public abstract class MovingPlayer extends Player {
 	 * @return Le message de notification
 	 */
 	public String attack() {
-		return name + " attaque !";
+		attacking = true;
+		return defendedBy == null
+			? name + " attaque !"
+			: name + " est bloqué par " + defendedBy.name + " !";
 	}
 
 	/**
