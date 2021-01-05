@@ -26,4 +26,8 @@ public abstract class MovingPlayer extends Player {
 	public String defense(Player p) {
 		return name + " défend sur le joueur " + p.name + " !";
 	}
+	
+	public String dribble() {
+		return name + " dribble !";
+	}
 }
