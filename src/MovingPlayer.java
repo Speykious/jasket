@@ -4,9 +4,17 @@
  * @author SPAAK Nelson
  */
 public abstract class MovingPlayer extends Player {
+	protected boolean attacking;
+
   protected MovingPlayer(String name) {
-    super(name);
-  }
+		super(name);
+		attacking = false;
+	}
+	
+	/** Indique si le joueur attaque. */
+	public boolean isAttacking() {
+		return attacking;
+	}
 
 	/**
 	 * Prévient que le joueur est en attaque.
