@@ -97,4 +97,9 @@ public class Time {
       throw new TimeOutOfBoundsException(minutes, seconds, maxMins, maxSecs);
     }
   }
+
+  @Override
+  public String toString() {
+    return String.format("%02d:%02d", minutes, seconds);
+  }
 }
