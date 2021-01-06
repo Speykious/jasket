@@ -4,18 +4,6 @@
  * @author SPAAK Nelson
  */
 public class Scoreboard {
-  public static final String clr = "\033[0m";
-  public static final String bld = "\033[1m";
-  public static final String red = "\033[31m";
-  public static final String grn = "\033[32m";
-  public static final String yel = "\033[33m";
-  public static final String blu = "\033[34m";
-  public static final String mag = "\033[35m";
-
-  /** Longueur d'un scoreboard en caractères. */
-  public static final int width = 80;
-  /** Hauteur d'un scoreboard en caractères. */
-  public static final int height = 20;
 
   /** Équipe "Guest". */
   public Team guest;
@@ -49,27 +37,27 @@ public class Scoreboard {
     int homeScore = home.getScore();
     String cola, colb;
     if (guestScore > homeScore) {
-      cola = grn;
-      colb = red;
+      cola = ANSI.grn;
+      colb = ANSI.red;
     } else if (guestScore < homeScore) {
-      cola = red;
-      colb = grn;
+      cola = ANSI.red;
+      colb = ANSI.grn;
     } else {
-      cola = blu;
-      colb = blu;
+      cola = ANSI.blu;
+      colb = ANSI.blu;
     }
     return "\n┌───────────────┬───────────────┐\n"
          + String.format("│ %s%13s%s │ %s%-13s%s │\n",
-            yel, guest.name, clr, yel, home.name, clr)
+            ANSI.yel, guest.name, ANSI.clr, ANSI.yel, home.name, ANSI.clr)
          + "│ ┌─────┐   ┌───┴───┐   ┌─────┐ │\n"
          + String.format("│ │ %s%03d%s │ %s◀%s │ "+time+" │ %s▶%s │ %s%03d%s │ │\n",
-            cola, guest.getScore(), clr, cola, clr,
-            colb, clr, colb, home.getScore(), clr)
+            cola, guest.getScore(), ANSI.clr, cola, ANSI.clr,
+            colb, ANSI.clr, colb, home.getScore(), ANSI.clr)
          + "│ └─────┘   └─┬───┬─┘   └─────┘ │\n"
          + String.format("│ %s%02d%s      %d   │ %s%d%s │   %d      %s%02d%s │\n",
-            mag, guest.getFouls(), clr, guest.getTimeouts(),
-            red, period, clr,
-            home.getTimeouts(), mag, home.getFouls(), clr)
+            ANSI.mag, guest.getFouls(), ANSI.clr, guest.getTimeouts(),
+            ANSI.red, period, ANSI.clr,
+            home.getTimeouts(), ANSI.mag, home.getFouls(), ANSI.clr)
          + "└─────────────┴───┴─────────────┘\n";
   }
 }
