@@ -36,7 +36,7 @@ public abstract class MovingPlayer extends Player {
 	 */
 	public String defense(Player p) {
 		p.defendedBy = this;
-		return name + " défend sur le joueur " + p.name + " !";
+		return name + " défend sur " + p.name + " !";
 	}
 	
 	public String dribble() {
