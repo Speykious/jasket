@@ -39,9 +39,20 @@ public class TestMatch {
     Team teamUSA = new Team("USA",
                pg2, sg2, pf2, c2, sf2, spg2, ssg2, spf2, sc2, ssf2);
     System.out.println(teamUSA);
-    System.out.println();
+    System.out.println("\nTest de la défense de joueur");
+    System.out.println(teamFrance.getPointGuard().defense(teamUSA.getCenter()));
+    System.out.println(teamUSA);
+    
 
     Scoreboard scoreboard = new Scoreboard(teamFrance, teamUSA);
+    System.out.println(scoreboard);
+
+    System.out.println("\nTest du marquage de points");
+    for (int i = 0; i < 100; i++) {
+      if (Math.random() < 0.2) teamFrance.getPointGuard().score();
+      if (Math.random() < 0.1) teamFrance.getShootingGuard().score();
+      if (Math.random() < 0.3) teamUSA.getPowerForward().score();
+    }
     System.out.println(scoreboard);
   }
 }
