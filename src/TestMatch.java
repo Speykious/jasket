@@ -22,7 +22,6 @@ public class TestMatch {
     Team teamFrance = new Team("France",
                pg, sg, pf, c, sf, spg, ssg, spf, sc, ssf);
     System.out.println(teamFrance);
-    System.out.println();
     
     SmallForward  sf2 = new SmallForward("Tatum Jayson");
     PowerForward  pf2 = new PowerForward("Barnes Harrison");
@@ -39,7 +38,7 @@ public class TestMatch {
     Team teamUSA = new Team("USA",
                pg2, sg2, pf2, c2, sf2, spg2, ssg2, spf2, sc2, ssf2);
     System.out.println(teamUSA);
-    System.out.println("\nTest de la défense de joueur");
+    System.out.println("Test de la défense de joueur");
     System.out.println(teamFrance.getPointGuard().defense(teamUSA.getCenter()));
     System.out.println(teamUSA);
     
@@ -47,12 +46,39 @@ public class TestMatch {
     Scoreboard scoreboard = new Scoreboard(teamFrance, teamUSA);
     System.out.println(scoreboard);
 
-    System.out.println("\nTest du marquage de points");
+    System.out.println("\nTest du marquage de points et du temps");
     for (int i = 0; i < 100; i++) {
       if (Math.random() < 0.2) teamFrance.getPointGuard().score();
       if (Math.random() < 0.1) teamFrance.getShootingGuard().score();
       if (Math.random() < 0.3) teamUSA.getPowerForward().score();
     }
+    try {
+      scoreboard.nextPeriod();
+    } catch (PeriodOutOfBoundsException e) {
+      System.out.println("Problème dans la fonctionnalité des quarts de tour !");
+    }
+    System.out.println("Test du temps");
+    scoreboard.time.addTime(5, 0);
+    scoreboard.time.addTime(3, 89);
+    scoreboard.time.addTime(203);
     System.out.println(scoreboard);
+
+    try {
+      scoreboard.nextPeriod();
+      scoreboard.nextPeriod();
+      scoreboard.nextPeriod();
+    } catch (PeriodOutOfBoundsException e) {
+      System.out.println("Limite du nombre de quarts de tour correcte");
+    }
+    System.out.println(scoreboard);
+    
+    teamFrance.getPowerForward().addFoul();
+    System.out.println("Un joueur français a reçu une faute !");
+    System.out.println(scoreboard);
+    System.out.println(teamFrance);
+    teamUSA.addTimeout();
+    System.out.println("Les joueurs américains ont demandé un temps mort !");
+    System.out.println(scoreboard);
+    System.out.println(teamUSA);
   }
 }

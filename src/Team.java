@@ -175,7 +175,7 @@ public class Team {
              + shootingGuard.toString() + "\n"
              + powerForward.toString() + "\n"
              + center.toString() + "\n"
-             + smallForward.toString();
+             + smallForward.toString() + "\n";
     return s;
   }
 }

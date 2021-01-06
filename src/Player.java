@@ -45,6 +45,16 @@ public abstract class Player {
     return fouls;
   }
 
+  /** Ajoute une faute au joueur. */
+  public void addFoul() {
+    fouls++;
+  }
+
+  /** Réinitialise le nombre de fautes du joueur. */
+  public void resetFouls() {
+    fouls = 0;
+  }
+
   /** Passe le ballon à un joueur. */
   public void pass(Player p) {
     if (hasTheBall) {

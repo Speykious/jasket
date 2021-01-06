@@ -58,7 +58,7 @@ public class Scoreboard {
       cola = blu;
       colb = blu;
     }
-    return "┌───────────────┬───────────────┐\n"
+    return "\n┌───────────────┬───────────────┐\n"
          + String.format("│ %s%13s%s │ %s%-13s%s │\n",
             yel, guest.name, clr, yel, home.name, clr)
          + "│ ┌─────┐   ┌───┴───┐   ┌─────┐ │\n"
@@ -70,6 +70,6 @@ public class Scoreboard {
             mag, guest.getFouls(), clr, guest.getTimeouts(),
             red, period, clr,
             home.getTimeouts(), mag, home.getFouls(), clr)
-         + "└─────────────┴───┴─────────────┘";
+         + "└─────────────┴───┴─────────────┘\n";
   }
 }
