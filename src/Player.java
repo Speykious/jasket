@@ -14,15 +14,26 @@ public abstract class Player {
   protected int score;
   /** Le nombre de fautes du joueur. */
   protected int fouls;
+  /** Numéro du joueur. */
+  protected int number;
   /** Joueur adverse qui défend sur le joueur courant. */
   protected Player defendedBy;
+  
+  /** Compteur qui donne le numéro d'un joueur. */
+  protected static int lastNumber = 0;
 
   protected Player(String name) {
     this.name = name;
     hasTheBall = false;
     score = 0;
     fouls = 0;
+    number = lastNumber++;
     defendedBy = null;
+  }
+
+  /** Donne le premier nombre libre à être donné à un joueur. */
+  public static int getLastNumber() {
+    return lastNumber;
   }
 
   /** Nom du joueur. */
@@ -74,7 +85,7 @@ public abstract class Player {
   @Override
   public String toString() {
     String s = name + " (f=" + fouls + ", s=" + score + ")";
-    if (defendedBy != null) s = Scoreboard.red + s + Scoreboard.clr;
+    if (defendedBy != null) s = ANSI.red + s + ANSI.clr;
     return s;
   }
 }

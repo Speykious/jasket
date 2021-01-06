@@ -102,4 +102,9 @@ public class Time {
   public String toString() {
     return String.format("%02d:%02d", minutes, seconds);
   }
+  
+  @Override
+  public Time clone() {
+    return new Time(minutes, seconds, maxMins, maxSecs);
+  }
 }

@@ -170,7 +170,7 @@ public class Team {
 
   @Override
   public String toString() {
-    String s = "Team " + Scoreboard.bld + name + Scoreboard.clr + "\n"
+    String s = "Team " + ANSI.bld + name + ANSI.clr + "\n"
              + pointGuard.toString() + "\n"
              + shootingGuard.toString() + "\n"
              + powerForward.toString() + "\n"
