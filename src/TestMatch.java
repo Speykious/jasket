@@ -1,7 +1,9 @@
 /**
  * [main Exemple d'un match de deux equipe notre client le commentateur souhaite utiliser
- * notre programme pour commenter mais aussi afficher l'avancement du match avec le scoreboard]
+ * notre programme pour commenter mais aussi afficher l'avancement du match avec le score]
+ * @param args [description]
  */
+public class TestMatch {
   public static void main(String[] args) {
     SmallForward  sf = new SmallForward("Amath M'Baye");
     PowerForward  pf = new PowerForward("Guerschon Yabusele");
