@@ -1,5 +1,7 @@
 /**
  * Namespace qui fournit des codes couleurs ANSI pour le terminal.
+ * 
+ * @author SPAAK Nelson
  */
 public class ANSI {
   /** Reset le formattage. */
