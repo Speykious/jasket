@@ -4,10 +4,13 @@
  * @author Danny Ba
  **/
 public class Team {
+  /** Tableau des joueurs sur le terrain. */
   private Player[] players;
+  /** Tableau des remplaçants. */
   private Player[] substitutes;
-
+  /** Nom de l'équipe. */
   public final String name;
+  /** Nombre de temps morts de l'équipe pendant le match. */
   private int timeouts;
 
   /**
@@ -81,7 +84,8 @@ public class Team {
       throw new IllegalArgumentException("Player has to be a more specific child");
   }
 
-  public void switchAtIndex(int i) {
+  /** Méthode interne pour échanger un joueur et son remplaçant correspondant. */
+  private void switchAtIndex(int i) {
     players[i].switchWith(substitutes[i]);
     Player ptemp = substitutes[i];
     substitutes[i] = players[i];
@@ -123,7 +127,7 @@ public class Team {
     timeouts = 0;
   }
 
-  /** Ajoute un timeout. */
+  /** Ajoute un temps mort. */
   public void addTimeout() {
     timeouts++;
   }

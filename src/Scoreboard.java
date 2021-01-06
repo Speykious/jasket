@@ -10,6 +10,7 @@ public class Scoreboard {
   public Team home;
   /** Temps restant du match courant. */
   public Time time;
+  /** Numéro du quart de tour actuel. */
   private int period;
 
   public Scoreboard(Team guest, Team home) {
