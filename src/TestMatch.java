@@ -1,4 +1,7 @@
-public class TestMatch {
+/**
+ * [main Exemple d'un match de deux equipe notre client le commentateur souhaite utiliser
+ * notre programme pour commenter mais aussi afficher l'avancement du match avec le scoreboard]
+ */
   public static void main(String[] args) {
     SmallForward  sf = new SmallForward("Amath M'Baye");
     PowerForward  pf = new PowerForward("Guerschon Yabusele");
