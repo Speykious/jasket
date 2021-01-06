@@ -21,7 +21,25 @@ public class TestMatch {
     }
     Team teamFrance = new Team("France",
                pg, sg, pf, c, sf, spg, ssg, spf, sc, ssf);
-
     System.out.println(teamFrance);
+    
+    SmallForward  sf2 = new SmallForward("Tatum Jayson");
+    PowerForward  pf2 = new PowerForward("Barnes Harrison");
+    Center        c2  = new Center("Plumlee Mason");
+    PointGuard    pg2 = new PointGuard("White Derrick");
+    ShootingGuard sg2 = new ShootingGuard("Mitchell Donovan");
+
+    SmallForward  ssf2 = new SmallForward("Brown Jaylen");
+    PowerForward  spf2 = new PowerForward("Middleton Khris");
+    Center        sc2  = new Center("Turner Myles");
+    PointGuard    spg2 = new PointGuard("Harris Joe");
+    ShootingGuard ssg2 = new ShootingGuard("Smart Marcus");
+    
+    Team teamUSA = new Team("USA",
+               pg2, sg2, pf2, c2, sf2, spg2, ssg2, spf2, sc2, ssf2);
+    System.out.println(teamUSA);
+
+    Scoreboard scoreboard = new Scoreboard(teamFrance, teamUSA);
+    System.out.println(scoreboard);
   }
 }
