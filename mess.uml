@@ -1,0 +1,171 @@
+@startuml Jasket
+class ANSI {
+  +{static} {final} String clr
+  +{static} {final} String bld
+  +{static} {final} String red
+  +{static} {final} String grn
+  +{static} {final} String yel
+  +{static} {final} String blu
+  +{static} {final} String mag
+}
+
+class Center {
+	-double pBash
+	+Center()
+	+Center()
+	+String bash()
+	+String toString()
+}
+
+class Forward {
+  +Forward()
+  +String screen()
+}
+
+class Guard {
+  +Guard()
+  +String crossover()
+}
+
+class MovingPlayer {
+	#boolean attacking
+  #MovingPlayer()
+}
+
+class PeriodOutOfBoundsException {
+	-{static} {final} long serialVersionUID
+  +PeriodOutOfBoundsException()
+}
+
+class Player {
+  #String name
+  #boolean hasTheBall
+  #int score
+  #int fouls
+  #int number
+  #Player defendedBy
+  #{static} int lastNumber
+
+  #Player()
+  +void switchWith()
+  +{static} int getLastNumber()
+  +String getName()
+  +int getScore()
+  +void score()
+  +int getFouls()
+  +void addFoul()
+  +void resetFouls()
+  +void pass()
+  +void intercept()
+  +String toString()
+}
+
+class PointGuard {
+  +PointGuard()  
+  +String toString()
+}
+
+class PowerForward {
+  +PowerForward()  
+  +String toString()
+}
+
+class Scoreboard {
+  +Team guest
+  +Team home
+  +Time time
+  -int period
+
+  +Scoreboard()
+  +void resetPeriod()
+  +void nextPeriod()
+  +String toString()
+}
+
+class ShootingGuard {
+	+ShootingGuard()
+	+void score()
+	+String dunk()
+	+String toString()
+}
+
+class SmallForward {
+  -double pRebound
+
+  +SmallForward()
+  +SmallForward()
+  +String rebound()  
+  +String toString()
+}
+
+class Team {
+  -Player[] players
+  -Player[] substitutes
+  +{final} String name
+  -int timeouts
+
+  +Team()  
+  +PointGuard getPointGuard()
+  +ShootingGuard getShootingGuard()
+  +PowerForward getPowerForward()
+  +Center getCenter()
+  +SmallForward getSmallForward()
+  +void addSubstitute()
+  -void switchAtIndex()
+  +void switchPointGuard()
+  +void switchShootingGuard()
+  +void switchPowerForward()
+  +void switchCenter()
+  +void switchSmallForward()
+  +int getTimeouts()
+  +void resetTimeouts()
+  +void addTimeout()
+  +int getScore()  
+  +int getFouls()
+  +String toString()
+}
+
+class TestMatch {
+  +{static} void main()
+}
+
+class Time {
+  -int minutes
+  -int seconds
+  -int maxMins
+  -int maxSecs
+
+  +Time()
+  +void setMaxTime()
+  +void setTime()
+  +void addTime()
+  +void increment()
+  +void decrement()
+  +void checkValidTime()
+
+  +String toString()  
+  +Time clone()
+}
+
+class TimeOutOfBoundsException {
+	-{static} {final} long serialVersionUID
+  +TimeOutOfBoundsException()
+}
+
+class Exception { ... }
+
+Player <|-- MovingPlayer
+Player <|-- Center
+MovingPlayer <|-- Forward
+MovingPlayer <|-- Guard
+Forward <|-- PowerForward
+Forward <|-- SmallForward
+Guard <|-- PointGuard
+Guard <|-- ShootingGuard
+Player o-- Team
+Team o-- Scoreboard
+Time *-- Scoreboard
+Exception <|-- PeriodOutOfBoundsException
+Exception <|-- TimeOutOfBoundsException
+
+@enduml
