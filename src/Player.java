@@ -60,4 +60,9 @@ public abstract class Player {
   public void intercept(Player p) {
     p.pass(this);
   }
+
+  @Override
+  public String toString() {
+    return name + " (f=" + fouls + ", s=" + score + ")";
+  }
 }

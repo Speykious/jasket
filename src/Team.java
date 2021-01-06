@@ -142,4 +142,10 @@ public class Team {
          + center.getFouls()
          + smallForward.getFouls();
   }
+
+  @Override
+  public String toString() {
+    String s = "";
+    return s;
+  }
 }

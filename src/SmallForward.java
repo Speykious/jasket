@@ -19,8 +19,9 @@ public class SmallForward extends Forward {
       return name + " a raté son rebond !";
   }
   
-  public String toString(){
-    return super.name + " \n Poste : " + position() + " \n  Nombre de fautes :  " + super.fouls ;
+  @Override
+  public String toString() {
+    return "SF " + super.toString();
   }
 
 }

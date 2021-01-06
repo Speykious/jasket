@@ -25,12 +25,8 @@ public class Center extends Player {
 		}
 	}
 
-	public String getPosition() {
-		return "Center";
-	}
-
+	@Override
 	public String toString() {
-		return super.name + " \n Poste : " + getPosition() + " \n  Nombre de fautes :  " + super.fouls;
+		return "C " + super.toString();
 	}
-
 }

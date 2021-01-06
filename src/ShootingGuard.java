@@ -22,7 +22,8 @@ public class ShootingGuard extends Guard {
 	 * [toString affiche la "fiche" du joueurs]
 	 * @return [la fiche du joueurs]
 	 */
-	public String toString(){
-		return super.name + " \n Poste : " + position() + " \n  Nombre de fautes :  " + super.fouls ;
+	@Override
+	public String toString() {
+		return "SG " + super.toString();
 	}
 }

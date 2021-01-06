@@ -6,11 +6,9 @@ public class PointGuard extends Guard {
   public PointGuard(String name) {
     super(name);
   }
-  /**
-	 * [toString affiche la "fiche" du joueurs]
-	 * @return [la fiche du joueurs]
-	 */
-  public String toString(){
-    return super.name + " \n Poste : " + position() + " \n  Nombre de fautes :  " + super.fouls ;
+  
+  @Override
+  public String toString() {
+    return "PG " + super.toString();
   }
 }
