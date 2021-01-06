@@ -1,6 +1,6 @@
 /**
- * Joueur qui bouge peu pendant le match.
- * Principalement défensif, il reste dans la zone de son camp.
+ * Joueur qui bouge peu pendant le match. Principalement défensif, il reste dans
+ * la zone de son camp.
  */
 public class Center extends Player {
 	/** Probabilité de faire un bash. */
@@ -24,18 +24,13 @@ public class Center extends Player {
 			return name + " vient de rater son bash !";
 		}
 	}
-	
-	public String getPosition(){
+
+	public String getPosition() {
 		return "Center";
 	}
-	
-	/**
-	 * [toString affiche la "fiche" du joueurs]
-	 * @return [la fiche du joueurs]
-	 */
-	public String toString(){
-		return super.name + " \n Poste : " + getPosition() + " \n  Nombre de fautes :  " + super.fouls ;
+
+	public String toString() {
+		return super.name + " \n Poste : " + getPosition() + " \n  Nombre de fautes :  " + super.fouls;
 	}
-	
-	
+
 }
