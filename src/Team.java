@@ -1,5 +1,6 @@
 /**
  * Rassemble les joueurs remplaçants et titulaires.
+ * 
  * @author Danny Ba
  **/
 public class Team {
@@ -17,7 +18,6 @@ public class Team {
 
   public final String name;
   private int score;
-  
 
   /**
    * Création de l'équipe avec les titulaires et les remplaçants
@@ -27,32 +27,30 @@ public class Team {
    * @param pf PowerForward
    * @param c  Center
    * @param sf SmallForward
-   * @param p Le score
+   * @param p  Le score
    */
-  public Team(String name,
-              PointGuard pg, ShootingGuard sg, PowerForward pf, Center c, SmallForward sf,
-              PointGuard spg, ShootingGuard ssg, PowerForward spf, Center sc, SmallForward ssf,
-              int p) {
+  public Team(String name, PointGuard pg, ShootingGuard sg, PowerForward pf, Center c, SmallForward sf, PointGuard spg,
+      ShootingGuard ssg, PowerForward spf, Center sc, SmallForward ssf, int p) {
     this.name = name;
 
-    pointGuard    = pg;
+    pointGuard = pg;
     shootingGuard = sg;
-    powerForward  = pf;
-    center        = c;
-    smallForward  = sf;
+    powerForward = pf;
+    center = c;
+    smallForward = sf;
 
-    subPointGuard    = spg;
+    subPointGuard = spg;
     subShootingGuard = ssg;
-    subPowerForward  = spf;
-    subCenter        = sc;
-    subSmallForward  = ssf;
-    
+    subPowerForward = spf;
+    subCenter = sc;
+    subSmallForward = ssf;
+
     score = p;
   }
 
   /**
-   * Initialise l'équipe sans donner le nombre de points qu'ils ont à la base
-   * et donc est à 0
+   * Initialise l'équipe sans donner le nombre de points qu'ils ont à la base et
+   * donc est à 0
    * 
    * @param pg PointGuard
    * @param sg ShootingGuard
@@ -68,12 +66,18 @@ public class Team {
 
   /** Ajoute le remplacant en prenant la place d'un des membres de l'équipe */
   public void addSubstitute(Player p) {
-    if      (p instanceof PointGuard)    subPointGuard    = (PointGuard)p;
-    else if (p instanceof ShootingGuard) subShootingGuard = (ShootingGuard)p;
-    else if (p instanceof PowerForward)  subPowerForward  = (PowerForward)p;
-    else if (p instanceof Center)        subCenter        = (Center)p;
-    else if (p instanceof SmallForward)  subSmallForward  = (SmallForward)p;
-    else throw new IllegalArgumentException("Player has to be a more specific child");
+    if (p instanceof PointGuard)
+      subPointGuard = (PointGuard)p;
+    else if (p instanceof ShootingGuard)
+      subShootingGuard = (ShootingGuard)p;
+    else if (p instanceof PowerForward)
+      subPowerForward = (PowerForward)p;
+    else if (p instanceof Center)
+      subCenter = (Center)p;
+    else if (p instanceof SmallForward)
+      subSmallForward = (SmallForward)p;
+    else
+      throw new IllegalArgumentException("Player has to be a more specific child");
   }
 
   /** Échange les point guards. */
@@ -83,17 +87,45 @@ public class Team {
     pointGuard = temp;
   }
 
+  /** Échange les point guards. */
+  public void switchShootingGuard() {
+    ShootingGuard temp = subShootingGuard;
+    subShootingGuard = shootingGuard;
+    shootingGuard = temp;
+  }
+
+  /** Échange les point guards. */
+  public void switchPowerForward() {
+    PowerForward temp = subPowerForward;
+    subPowerForward = powerForward;
+    powerForward = temp;
+  }
+
+  /** Échange les point guards. */
+  public void switchCenter() {
+    Center temp = subCenter;
+    subCenter = center;
+    center = temp;
+  }
+
+  /** Échange les point guards. */
+  public void switchSmallForward() {
+    SmallForward temp = subSmallForward;
+    subSmallForward = smallForward;
+    smallForward = temp;
+  }
+
   /**
    * Retourne le score courant de l'équipe.
    * 
    * @return le score de l'équipe
    */
-  public int getCurrentScore() {
+  public int getScore() {
     return score;
   }
 
   /** Met le score de l'équipe à jour. */
-  public void scoreUpdate() {
+  public void updateScore() {
     score = pointGuard.getScore()
           + shootingGuard.getScore()
           + powerForward.getScore()
