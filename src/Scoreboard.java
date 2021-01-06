@@ -12,11 +12,6 @@ public class Scoreboard {
   public Time time;
   private int period;
 
-  /**
-   * [Scoreboard description]
-   * @param guest [description]
-   * @param home  [description]
-   */
   public Scoreboard(Team guest, Team home) {
     this.guest = guest;
     this.home = home;
@@ -33,5 +28,17 @@ public class Scoreboard {
   public void nextPeriod() throws PeriodOutOfBoundsException {
     if (period == 4) throw new PeriodOutOfBoundsException(period + 1);
     period++;
+  }
+
+  @Override
+  public String toString() {
+  return "┌───────────────┬───────────────┐"
+       + String.format("│%13s│%-13s│", guest.name, home.name)
+       + "│ ┌─────┐   ┌───┴───┐   ┌─────┐ │"
+       + String.format("│ │%3d│ ◀ │"+time+"│ ▶ │%3d│ │", guest.getScore(), home.getScore())
+       + "│ └─────┘   └─┬───┬─┘   └─────┘ │"
+       + String.format("│ %2d     %d   │ %d │   %d      %2d │",
+          guest.getFouls(), guest.getTimeouts(), period, home.getTimeouts(), home.getFouls())
+       + "└─────────────┴───┴─────────────┘";
   }
 }
