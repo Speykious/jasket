@@ -10,6 +10,7 @@ public class Scoreboard {
   public Team home;
   /** Temps restant du match courant. */
   public Time time;
+  private int period;
 
   /**
    * [Scoreboard description]
@@ -19,6 +20,18 @@ public class Scoreboard {
   public Scoreboard(Team guest, Team home) {
     this.guest = guest;
     this.home = home;
-    this.time = new Time();
+    time = new Time();
+    resetPeriod();
+  }
+
+  /** Réinitialise la période. */
+  public void resetPeriod() {
+    period = 1;
+  }
+
+  /** Passe à la période suivante. */
+  public void nextPeriod() throws PeriodOutOfBoundsException {
+    if (period == 4) throw new PeriodOutOfBoundsException(period + 1);
+    period++;
   }
 }
