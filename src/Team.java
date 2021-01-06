@@ -50,6 +50,31 @@ public class Team {
 
     timeouts = 0;
   }
+  
+  /** Retourne le joueur point guard de l'équipe. */
+  public PointGuard getPointGuard() {
+    return pointGuard;
+  }
+
+  /** Retourne le joueur shooting guard de l'équipe. */
+  public ShootingGuard getShootingGuard() {
+    return shootingGuard;
+  }
+
+  /** Retourne le joueur power forward de l'équipe. */
+  public PowerForward getPowerForward() {
+    return powerForward;
+  }
+
+  /** Retourne le joueur center de l'équipe. */
+  public Center getCenter() {
+    return center;
+  }
+
+  /** Retourne le joueur smallForward de l'équipe. */
+  public SmallForward getSmallForward() {
+    return smallForward;
+  }
 
   /** Ajoute le remplacant en prenant la place d'un des membres de l'équipe */
   public void addSubstitute(Player p) {
