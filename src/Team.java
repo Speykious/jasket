@@ -17,6 +17,7 @@ public class Team {
   private SmallForward subSmallForward;
 
   public final String name;
+  private int timeouts;
 
   /**
    * Création de l'équipe avec les titulaires et les remplaçants
@@ -28,8 +29,11 @@ public class Team {
    * @param sf SmallForward
    * @param p  Le score
    */
-  public Team(String name, PointGuard pg, ShootingGuard sg, PowerForward pf, Center c, SmallForward sf, PointGuard spg,
-      ShootingGuard ssg, PowerForward spf, Center sc, SmallForward ssf) {
+  public Team(String name,
+              PointGuard pg, ShootingGuard sg, PowerForward pf, Center c, SmallForward sf,
+              PointGuard spg, ShootingGuard ssg, PowerForward spf, Center sc, SmallForward ssf) {
+    if (name.length() > 13)
+      throw new IllegalArgumentException("Name has to have 13 characters or less");
     this.name = name;
 
     pointGuard = pg;
@@ -43,6 +47,8 @@ public class Team {
     subPowerForward = spf;
     subCenter = sc;
     subSmallForward = ssf;
+
+    timeouts = 0;
   }
 
   /** Ajoute le remplacant en prenant la place d'un des membres de l'équipe */
@@ -96,6 +102,21 @@ public class Team {
     smallForward = temp;
   }
 
+  /** Retourne le nombre de timeouts. */
+  public int getTimeouts() {
+    return timeouts;
+  }
+
+  /** Réinitialise les timeouts de l'équipe à 0. */
+  public void resetTimeouts() {
+    timeouts = 0;
+  }
+
+  /** Ajoute un timeout. */
+  public void addTimeout() {
+    timeouts++;
+  }
+
   /**
    * Retourne le score courant de l'équipe.
    * 
@@ -107,5 +128,18 @@ public class Team {
          + powerForward.getScore()
          + center.getScore()
          + smallForward.getScore();
+  }
+  
+  /**
+   * Retourne les fautes totales de l'équipe.
+   * 
+   * @return les fautes totales de l'équipe
+   */
+  public int getFouls() {
+    return pointGuard.getFouls()
+         + shootingGuard.getFouls()
+         + powerForward.getFouls()
+         + center.getFouls()
+         + smallForward.getFouls();
   }
 }
