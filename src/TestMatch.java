@@ -1,5 +1,5 @@
 public class TestMatch {
-  public static main void (String[] args) {
-  
+  public static void main(String[] args) {
+    
   }
 }
