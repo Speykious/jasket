@@ -13,12 +13,8 @@ public abstract class Guard extends MovingPlayer {
   public String crossover(Player p) {
     return "Le joueur " + super.name + " a crossé le joueur " + p.getName() + " !";
   }
-  
-  /**
-   * [toString affiche la "fiche" du joueurs]
-   * @return [la fiche du joueurs]
-   */
-  public String position(){
+
+  public String position() {
     return "Guard";
   }
 }
