@@ -145,7 +145,12 @@ public class Team {
 
   @Override
   public String toString() {
-    String s = "";
+    String s = "Team " + Scoreboard.bld + name + Scoreboard.clr + "\n"
+             + pointGuard.toString() + "\n"
+             + shootingGuard.toString() + "\n"
+             + powerForward.toString() + "\n"
+             + center.toString() + "\n"
+             + smallForward.toString();
     return s;
   }
 }

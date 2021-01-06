@@ -17,11 +17,12 @@ public class TestMatch {
                pg, sg, pf, c, sf, spg, ssg, spf, sc, ssf);
       System.out.println("Le constructeur de Team ne fonctionne pas correctement :(");
     } catch (IllegalArgumentException e) {
-      System.out.println("Le constructeur de Team fonctionne correctement :)");
+      System.out.println("Le constructeur de Team fonctionne correctement :)\n");
     }
     Team teamFrance = new Team("France",
                pg, sg, pf, c, sf, spg, ssg, spf, sc, ssf);
     System.out.println(teamFrance);
+    System.out.println();
     
     SmallForward  sf2 = new SmallForward("Tatum Jayson");
     PowerForward  pf2 = new PowerForward("Barnes Harrison");
@@ -38,6 +39,7 @@ public class TestMatch {
     Team teamUSA = new Team("USA",
                pg2, sg2, pf2, c2, sf2, spg2, ssg2, spf2, sc2, ssf2);
     System.out.println(teamUSA);
+    System.out.println();
 
     Scoreboard scoreboard = new Scoreboard(teamFrance, teamUSA);
     System.out.println(scoreboard);

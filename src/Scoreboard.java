@@ -58,15 +58,15 @@ public class Scoreboard {
       cola = blu;
       colb = blu;
     }
-    return "┌───────────────┬───────────────┐"
-         + String.format("│%s%13s%s│%s%-13s%s│",
+    return "┌───────────────┬───────────────┐\n"
+         + String.format("│ %s%13s%s │ %s%-13s%s │\n",
             yel, guest.name, clr, yel, home.name, clr)
-         + "│ ┌─────┐   ┌───┴───┐   ┌─────┐ │"
-         + String.format("│ │%s%3d%s│ %s◀%s │"+time+"│ %s▶%s │%s%3d%s│ │",
+         + "│ ┌─────┐   ┌───┴───┐   ┌─────┐ │\n"
+         + String.format("│ │ %s%03d%s │ %s◀%s │ "+time+" │ %s▶%s │ %s%03d%s │ │\n",
             cola, guest.getScore(), clr, cola, clr,
             colb, clr, colb, home.getScore(), clr)
-         + "│ └─────┘   └─┬───┬─┘   └─────┘ │"
-         + String.format("│ %s%2d%s     %d   │ %s%d%s │   %d      %s%2d%s │",
+         + "│ └─────┘   └─┬───┬─┘   └─────┘ │\n"
+         + String.format("│ %s%02d%s      %d   │ %s%d%s │   %d      %s%02d%s │\n",
             mag, guest.getFouls(), clr, guest.getTimeouts(),
             red, period, clr,
             home.getTimeouts(), mag, home.getFouls(), clr)
