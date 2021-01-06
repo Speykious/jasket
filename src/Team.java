@@ -17,7 +17,6 @@ public class Team {
   private SmallForward subSmallForward;
 
   public final String name;
-  private int score;
 
   /**
    * Création de l'équipe avec les titulaires et les remplaçants
@@ -30,7 +29,7 @@ public class Team {
    * @param p  Le score
    */
   public Team(String name, PointGuard pg, ShootingGuard sg, PowerForward pf, Center c, SmallForward sf, PointGuard spg,
-      ShootingGuard ssg, PowerForward spf, Center sc, SmallForward ssf, int p) {
+      ShootingGuard ssg, PowerForward spf, Center sc, SmallForward ssf) {
     this.name = name;
 
     pointGuard = pg;
@@ -44,24 +43,6 @@ public class Team {
     subPowerForward = spf;
     subCenter = sc;
     subSmallForward = ssf;
-
-    score = p;
-  }
-
-  /**
-   * Initialise l'équipe sans donner le nombre de points qu'ils ont à la base et
-   * donc est à 0
-   * 
-   * @param pg PointGuard
-   * @param sg ShootingGuard
-   * @param pf PowerForward
-   * @param c  Center
-   * @param sf SmallForward
-   */
-  public Team(String name,
-              PointGuard pg, ShootingGuard sg, PowerForward pf, Center c, SmallForward sf,
-              PointGuard spg, ShootingGuard ssg, PowerForward spf, Center sc, SmallForward ssf) {
-    this(name, pg, sg, pf, c, sf, spg, ssg, spf, sc, ssf, 0);
   }
 
   /** Ajoute le remplacant en prenant la place d'un des membres de l'équipe */
@@ -121,15 +102,10 @@ public class Team {
    * @return le score de l'équipe
    */
   public int getScore() {
-    return score;
-  }
-
-  /** Met le score de l'équipe à jour. */
-  public void updateScore() {
-    score = pointGuard.getScore()
-          + shootingGuard.getScore()
-          + powerForward.getScore()
-          + center.getScore()
-          + smallForward.getScore();
+    return pointGuard.getScore()
+         + shootingGuard.getScore()
+         + powerForward.getScore()
+         + center.getScore()
+         + smallForward.getScore();
   }
 }
