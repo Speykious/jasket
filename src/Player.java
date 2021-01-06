@@ -3,7 +3,7 @@
  * besoin d'avoir un rôle assigné en jeu.
  * 
  * @author SPAAK Nelson
- * @author BA Danny 
+ * @author BA Danny
  */
 public abstract class Player {
   /** Le nom du joueur. */
@@ -16,7 +16,6 @@ public abstract class Player {
   protected int fouls;
   /** Joueur adverse qui défend sur le joueur courant. */
   protected Player defendedBy;
-  
 
   protected Player(String name) {
     this.name = name;
@@ -25,7 +24,6 @@ public abstract class Player {
     fouls = 0;
     defendedBy = null;
   }
-  
 
   /** Nom du joueur. */
   public String getName() {
@@ -41,11 +39,12 @@ public abstract class Player {
   public void score() {
     score += 2;
   }
-  
-  public int getFouls(){
+
+  /** Retourne le nombre de fautes du joueur. */
+  public int getFouls() {
     return fouls;
   }
-   
+
   /** Passe le ballon à un joueur. */
   public void pass(Player p) {
     if (hasTheBall) {
@@ -56,5 +55,9 @@ public abstract class Player {
     } else
       throw new IllegalStateException("Trying to pass the ball which Player " + this + " doesn't have");
   }
-  
+
+  /** Intercepte le ballon d'un joueur adverse. */
+  public void intercept(Player p) {
+    p.pass(this);
+  }
 }
