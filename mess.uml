@@ -1,43 +1,42 @@
 @startuml Jasket
 class ANSI {
-  +{static} {final} String clr
-  +{static} {final} String bld
-  +{static} {final} String red
-  +{static} {final} String grn
-  +{static} {final} String yel
-  +{static} {final} String blu
-  +{static} {final} String mag
+  +{static} String clr
+  +{static} String bld
+  +{static} String red
+  +{static} String grn
+  +{static} String yel
+  +{static} String blu
+  +{static} String mag
 }
 
 class Center {
 	-double pBash
 	+Center()
-	+Center()
 	+String bash()
 	+String toString()
 }
 
-class Forward {
+abstract class Forward {
   +Forward()
   +String screen()
 }
 
-class Guard {
+abstract class Guard {
   +Guard()
   +String crossover()
 }
 
-class MovingPlayer {
+abstract class MovingPlayer {
 	#boolean attacking
   #MovingPlayer()
 }
 
 class PeriodOutOfBoundsException {
-	-{static} {final} long serialVersionUID
+	-{static} long serialVersionUID
   +PeriodOutOfBoundsException()
 }
 
-class Player {
+abstract class Player {
   #String name
   #boolean hasTheBall
   #int score
@@ -93,7 +92,6 @@ class SmallForward {
   -double pRebound
 
   +SmallForward()
-  +SmallForward()
   +String rebound()  
   +String toString()
 }
@@ -101,7 +99,7 @@ class SmallForward {
 class Team {
   -Player[] players
   -Player[] substitutes
-  +{final} String name
+  +String name
   -int timeouts
 
   +Team()  
@@ -148,11 +146,9 @@ class Time {
 }
 
 class TimeOutOfBoundsException {
-	-{static} {final} long serialVersionUID
+	-{static} long serialVersionUID
   +TimeOutOfBoundsException()
 }
-
-class Exception { ... }
 
 Player <|-- MovingPlayer
 Player <|-- Center
@@ -167,5 +163,4 @@ Team o-- Scoreboard
 Time *-- Scoreboard
 Exception <|-- PeriodOutOfBoundsException
 Exception <|-- TimeOutOfBoundsException
-
 @enduml
