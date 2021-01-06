@@ -63,6 +63,8 @@ public abstract class Player {
 
   @Override
   public String toString() {
-    return name + " (f=" + fouls + ", s=" + score + ")";
+    String s = name + " (f=" + fouls + ", s=" + score + ")";
+    if (defendedBy != null) s = Scoreboard.red + s + Scoreboard.clr;
+    return s;
   }
 }
