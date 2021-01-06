@@ -4,17 +4,8 @@
  * @author Danny Ba
  **/
 public class Team {
-  private PointGuard pointGuard;
-  private ShootingGuard shootingGuard;
-  private PowerForward powerForward;
-  private Center center;
-  private SmallForward smallForward;
-
-  private PointGuard subPointGuard;
-  private ShootingGuard subShootingGuard;
-  private PowerForward subPowerForward;
-  private Center subCenter;
-  private SmallForward subSmallForward;
+  private Player[] players;
+  private Player[] substitutes;
 
   public final String name;
   private int timeouts;
@@ -22,109 +13,104 @@ public class Team {
   /**
    * Création de l'équipe avec les titulaires et les remplaçants
    * 
-   * @param pg PointGuard
-   * @param sg ShootingGuard
-   * @param pf PowerForward
-   * @param c  Center
-   * @param sf SmallForward
-   * @param p  Le score
+   * @param players Joueurs qui seront sur le terrain.
+   * @param substitutes Joueurs remplaçants.
    */
-  public Team(String name,
-              PointGuard pg, ShootingGuard sg, PowerForward pf, Center c, SmallForward sf,
-              PointGuard spg, ShootingGuard ssg, PowerForward spf, Center sc, SmallForward ssf) {
+  public Team(String name, Player[] players, Player[] substitutes) {
     if (name.length() > 13)
-      throw new IllegalArgumentException("Name has to have 13 characters or less");
+      throw new IllegalArgumentException("`name` has to have 13 characters or less");
     this.name = name;
 
-    pointGuard = pg;
-    shootingGuard = sg;
-    powerForward = pf;
-    center = c;
-    smallForward = sf;
-
-    subPointGuard = spg;
-    subShootingGuard = ssg;
-    subPowerForward = spf;
-    subCenter = sc;
-    subSmallForward = ssf;
+    if (players.length != 5)
+      throw new IllegalArgumentException("`players` has to have exactly 5 players");
+    if (substitutes.length != 5)
+      throw new IllegalArgumentException("`players` has to have exactly 5 players");
+    
+    if (!(players[0] instanceof PointGuard))
+      throw new IllegalArgumentException("`players[0]` has to be a PointGuard");
+    if (!(players[1] instanceof ShootingGuard))
+      throw new IllegalArgumentException("`players[1]` has to be a ShootingGuard");
+    if (!(players[2] instanceof PowerForward))
+      throw new IllegalArgumentException("`players[2]` has to be a PowerForward");
+    if (!(players[3] instanceof Center))
+      throw new IllegalArgumentException("`players[3]` has to be a Center");
+    if (!(players[4] instanceof SmallForward))
+      throw new IllegalArgumentException("`players[4]` has to be a SmallForward");
 
     timeouts = 0;
   }
   
   /** Retourne le joueur point guard de l'équipe. */
   public PointGuard getPointGuard() {
-    return pointGuard;
+    return (PointGuard)players[0];
   }
 
   /** Retourne le joueur shooting guard de l'équipe. */
   public ShootingGuard getShootingGuard() {
-    return shootingGuard;
+    return (ShootingGuard)players[1];
   }
 
   /** Retourne le joueur power forward de l'équipe. */
   public PowerForward getPowerForward() {
-    return powerForward;
+    return (PowerForward)players[2];
   }
 
   /** Retourne le joueur center de l'équipe. */
   public Center getCenter() {
-    return center;
+    return (Center)players[3];
   }
 
   /** Retourne le joueur smallForward de l'équipe. */
   public SmallForward getSmallForward() {
-    return smallForward;
+    return (SmallForward)players[4];
   }
 
   /** Ajoute le remplacant en prenant la place d'un des membres de l'équipe */
   public void addSubstitute(Player p) {
     if (p instanceof PointGuard)
-      subPointGuard = (PointGuard)p;
+      substitutes[0] = (PointGuard)p;
     else if (p instanceof ShootingGuard)
-      subShootingGuard = (ShootingGuard)p;
+      substitutes[1] = (ShootingGuard)p;
     else if (p instanceof PowerForward)
-      subPowerForward = (PowerForward)p;
+      substitutes[2] = (PowerForward)p;
     else if (p instanceof Center)
-      subCenter = (Center)p;
+      substitutes[3] = (Center)p;
     else if (p instanceof SmallForward)
-      subSmallForward = (SmallForward)p;
+      substitutes[4] = (SmallForward)p;
     else
       throw new IllegalArgumentException("Player has to be a more specific child");
   }
 
+  public void switchAtIndex(int i) {
+    players[i].switchWith(substitutes[i]);
+    Player ptemp = substitutes[i];
+    substitutes[i] = players[i];
+    players[i] = ptemp;
+  }
+
   /** Échange les point guards. */
   public void switchPointGuard() {
-    PointGuard temp = subPointGuard;
-    subPointGuard = pointGuard;
-    pointGuard = temp;
+    switchAtIndex(0);
   }
 
   /** Échange les point guards. */
   public void switchShootingGuard() {
-    ShootingGuard temp = subShootingGuard;
-    subShootingGuard = shootingGuard;
-    shootingGuard = temp;
+    switchAtIndex(1);
   }
 
   /** Échange les point guards. */
   public void switchPowerForward() {
-    PowerForward temp = subPowerForward;
-    subPowerForward = powerForward;
-    powerForward = temp;
+    switchAtIndex(2);
   }
 
   /** Échange les point guards. */
   public void switchCenter() {
-    Center temp = subCenter;
-    subCenter = center;
-    center = temp;
+    switchAtIndex(3);
   }
 
   /** Échange les point guards. */
   public void switchSmallForward() {
-    SmallForward temp = subSmallForward;
-    subSmallForward = smallForward;
-    smallForward = temp;
+    switchAtIndex(4);
   }
 
   /** Retourne le nombre de timeouts. */
@@ -148,11 +134,10 @@ public class Team {
    * @return le score de l'équipe
    */
   public int getScore() {
-    return pointGuard.getScore()
-         + shootingGuard.getScore()
-         + powerForward.getScore()
-         + center.getScore()
-         + smallForward.getScore();
+    int total = 0;
+    for (int i = 0; i < players.length; i++)
+      total += players[i].getScore();
+    return total;
   }
   
   /**
@@ -161,21 +146,17 @@ public class Team {
    * @return les fautes totales de l'équipe
    */
   public int getFouls() {
-    return pointGuard.getFouls()
-         + shootingGuard.getFouls()
-         + powerForward.getFouls()
-         + center.getFouls()
-         + smallForward.getFouls();
+    int total = 0;
+    for (int i = 0; i < players.length; i++)
+      total += players[i].getFouls();
+    return total;
   }
 
   @Override
   public String toString() {
-    String s = "Team " + ANSI.bld + name + ANSI.clr + "\n"
-             + pointGuard.toString() + "\n"
-             + shootingGuard.toString() + "\n"
-             + powerForward.toString() + "\n"
-             + center.toString() + "\n"
-             + smallForward.toString() + "\n";
+    String s = "Team " + ANSI.bld + name + ANSI.clr + "\n";
+    for (int i = 0; i < players.length; i++)
+      s += players[i].toString() + "\n";
     return s;
   }
 }

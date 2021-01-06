@@ -4,7 +4,6 @@
  * @author SPAAK Nelson
  */
 public class Scoreboard {
-
   /** Équipe "Guest". */
   public Team guest;
   /** Équipe "Home". */

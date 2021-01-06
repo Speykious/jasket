@@ -31,6 +31,21 @@ public abstract class Player {
     defendedBy = null;
   }
 
+  /** Échange les buts marqués, la possession de la balle et le statut de défense des joueurs. */
+  public void switchWith(Player p) {
+    boolean btemp = hasTheBall;
+    hasTheBall = p.hasTheBall;
+    p.hasTheBall = btemp;
+    
+    int itemp = score;
+    score = p.score;
+    p.score = itemp;
+
+    Player ptemp = defendedBy;
+    defendedBy = p.defendedBy;
+    p.defendedBy = ptemp;
+  }
+
   /** Donne le premier nombre libre à être donné à un joueur. */
   public static int getLastNumber() {
     return lastNumber;
