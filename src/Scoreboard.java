@@ -10,6 +10,7 @@ public class Scoreboard {
   public static final String grn = "\033[32m";
   public static final String yel = "\033[33m";
   public static final String blu = "\033[34m";
+  public static final String mag = "\033[35m";
 
   /** Longueur d'un scoreboard en caractères. */
   public static final int width = 80;
@@ -65,8 +66,10 @@ public class Scoreboard {
             cola, guest.getScore(), clr, cola, clr,
             colb, clr, colb, home.getScore(), clr)
          + "│ └─────┘   └─┬───┬─┘   └─────┘ │"
-         + String.format("│ %2d     %d   │ %d │   %d      %2d │",
-            guest.getFouls(), guest.getTimeouts(), period, home.getTimeouts(), home.getFouls())
+         + String.format("│ %s%2d%s     %d   │ %s%d%s │   %d      %s%2d%s │",
+            mag, guest.getFouls(), clr, guest.getTimeouts(),
+            red, period, clr,
+            home.getTimeouts(), mag, home.getFouls(), clr)
          + "└─────────────┴───┴─────────────┘";
   }
 }
