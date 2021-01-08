@@ -39,6 +39,9 @@ public class Team {
       throw new IllegalArgumentException("`players[3]` has to be a Center");
     if (!(players[4] instanceof SmallForward))
       throw new IllegalArgumentException("`players[4]` has to be a SmallForward");
+    
+    this.players = players;
+    this.substitutes = substitutes;
 
     timeouts = 0;
   }
